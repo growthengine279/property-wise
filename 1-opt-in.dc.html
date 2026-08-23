@@ -2,10 +2,27 @@
 <html>
 <head>
 <meta charset="utf-8">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PKLJFLLF');</script>
+<!-- End Google Tag Manager -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="uploads/01-loan-balance.webp">
+<link rel="preload" as="image" href="uploads/04-borrowing-power.webp">
+<script src="./vendor/react.production.min.js"></script>
+<script src="./vendor/react-dom.production.min.js"></script>
 <script src="./support.js"></script>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PKLJFLLF"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 <x-dc>
 <helmet data-dc-atomics>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap">
@@ -39,11 +56,11 @@
     <div style="width:{{ r.heroImgW }};">
       <div style="position:relative;display:flex;flex-direction:column;gap:18px;">
         <div style="position:relative;align-self:flex-end;width:92%;">
-          <img src="uploads/01-loan-balance.png" alt="Home loan balance, two plans" style="display:block;width:100%;border-radius:10px;border:1px solid rgba(32,32,32,0.05);box-shadow:0 18px 40px -18px rgba(32,32,32,0.22),0 2px 6px rgba(32,32,32,0.05);" />
+          <img src="uploads/01-loan-balance.webp" alt="Home loan balance, two plans" style="display:block;width:100%;border-radius:10px;border:1px solid rgba(32,32,32,0.05);box-shadow:0 18px 40px -18px rgba(32,32,32,0.22),0 2px 6px rgba(32,32,32,0.05);" width="1260" height="723" decoding="async" loading="eager" fetchpriority="high" />
           <div style="position:absolute;z-index:2;top:-14px;left:24%;display:flex;align-items:center;gap:8px;background:#FFFFFF;border:1px solid rgba(32,32,32,0.05);border-radius:999px;padding:8px 14px;font-size:12.5px;font-weight:600;color:#202020;box-shadow:0 18px 40px -18px rgba(32,32,32,0.22),0 2px 6px rgba(32,32,32,0.05);white-space:nowrap;"><span style="width:8px;height:8px;border-radius:50%;background:#1F5EFF;"></span>Paid off 2034</div>
         </div>
         <div style="position:relative;align-self:flex-start;width:72%;">
-          <img src="uploads/04-borrowing-power.png" alt="Borrowing power" style="display:block;width:100%;border-radius:10px;border:1px solid rgba(32,32,32,0.05);box-shadow:0 18px 40px -18px rgba(32,32,32,0.22),0 2px 6px rgba(32,32,32,0.05);" />
+          <img src="uploads/04-borrowing-power.webp" alt="Borrowing power" style="display:block;width:100%;border-radius:10px;border:1px solid rgba(32,32,32,0.05);box-shadow:0 18px 40px -18px rgba(32,32,32,0.22),0 2px 6px rgba(32,32,32,0.05);" width="1020" height="642" decoding="async" loading="eager" fetchpriority="high" />
           <div style="position:absolute;z-index:2;top:-15px;right:-15px;width:30px;height:30px;background:#FFFFFF;border:1px solid rgba(32,32,32,0.05);border-radius:8px;box-shadow:0 18px 40px -18px rgba(32,32,32,0.22),0 2px 6px rgba(32,32,32,0.05);display:flex;align-items:center;justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1F5EFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"></path><path d="M5 10v10h14V10"></path></svg></div>
         </div>
       </div>
@@ -175,7 +192,7 @@
       </div>
       <div style="width:{{ r.colB }};">
         <div style="background:#E8EEFF;padding:{{ r.cardPad }};">
-          <img src="uploads/02-interest-still-to-pay.png" alt="Interest still to pay" style="display:block;width:100%;height:auto;border-radius:10px;border:1px solid rgba(32,32,32,0.05);box-shadow:0 18px 40px -18px rgba(32,32,32,0.22),0 2px 6px rgba(32,32,32,0.05);" />
+          <img src="uploads/02-interest-still-to-pay.webp" alt="Interest still to pay" style="display:block;width:100%;height:auto;border-radius:10px;border:1px solid rgba(32,32,32,0.05);box-shadow:0 18px 40px -18px rgba(32,32,32,0.22),0 2px 6px rgba(32,32,32,0.05);" width="900" height="708" decoding="async" loading="lazy" />
         </div>
         <span style="display:block;font-size:10px;color:#828282;margin-top:12px;">Numbers are for example only</span>
       </div>
@@ -206,7 +223,7 @@
       <p style="font-size:10px;color:#828282;margin:14px 0 0;">Projections are estimates based on stated assumptions.</p>
 
       <div style="display:flex;justify-content:center;margin:44px 0 0;">
-        <img src="uploads/03-tax-position.png" alt="Tax position" style="display:block;width:100%;max-width:420px;height:auto;border-radius:10px;border:1px solid rgba(32,32,32,0.05);box-shadow:0 18px 40px -18px rgba(32,32,32,0.22),0 2px 6px rgba(32,32,32,0.05);" />
+        <img src="uploads/03-tax-position.webp" alt="Tax position" style="display:block;width:100%;max-width:420px;height:auto;border-radius:10px;border:1px solid rgba(32,32,32,0.05);box-shadow:0 18px 40px -18px rgba(32,32,32,0.22),0 2px 6px rgba(32,32,32,0.05);" width="900" height="591" decoding="async" loading="lazy" />
       </div>
       <p style="font-size:10px;color:#828282;margin:12px 0 0;text-align:center;">Numbers are for example only</p>
 
@@ -235,7 +252,7 @@
         <p style="font-size:17px;line-height:1.6;color:#4D4D4D;margin:0;max-width:56ch;">That is not a small shift. That is the whole difference between the people who look back on this happily and the people who write the posts about losing $200,000.</p>
       </div>
       <div style="width:{{ r.colB }};">
-        <img src="uploads/06-cashflow-comparison.png" alt="Cashflow comparison" style="display:block;width:100%;height:auto;border-radius:10px;border:1px solid rgba(32,32,32,0.05);box-shadow:0 18px 40px -18px rgba(32,32,32,0.22),0 2px 6px rgba(32,32,32,0.05);" />
+        <img src="uploads/06-cashflow-comparison.webp" alt="Cashflow comparison" style="display:block;width:100%;height:auto;border-radius:10px;border:1px solid rgba(32,32,32,0.05);box-shadow:0 18px 40px -18px rgba(32,32,32,0.22),0 2px 6px rgba(32,32,32,0.05);" width="1020" height="663" decoding="async" loading="lazy" />
         <span style="display:block;font-size:10px;color:#828282;margin-top:12px;">Numbers are for example only</span>
       </div>
     </div>
