@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap">
+<style>body{margin:0;background:#FFFFFF;color:#4D4D4D;font-family:"Inter",system-ui,sans-serif}a{color:#202020;text-decoration:underline}a:hover{color:#1846C2}strong{font-weight:500;color:#202020}::selection{background:#E8EEFF}</style>
+</helmet>
+<div data-screen-label="03 Questionnaire" style="max-width:{{ r.wrapMaxW }};margin:0 auto;min-height:100vh;display:flex;flex-direction:column;background:#FFFFFF;">
+
+
+  <header style="display:flex;justify-content:center;padding:{{ r.headerPad }};">
+    <span style="font-weight:500;font-size:17px;letter-spacing:-0.01em;color:#202020;">Property Wise</span>
+  </header>
+
+  <div style="max-width:640px;margin:0 auto;width:100%;padding:0 {{ r.sectionPadH }};box-sizing:border-box;">
+    <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-bottom:10px;">
+      <sc-for list="{{ segments }}" as="seg" hint-placeholder-count="6">
+        <div style="height:4px;background:{{ seg.color }};"></div>
+      </sc-for>
+    </div>
+    <p style="font-size:12px;letter-spacing:0.04em;text-transform:uppercase;color:#828282;margin:0 0 48px;">Question {{ questionNum }} of 6</p>
+  </div>
+
+  <div style="flex:1;max-width:640px;margin:0 auto;width:100%;padding:0 {{ r.sectionPadH }} 40px;box-sizing:border-box;">
+    <h2 style="font-weight:400;font-size:{{ r.qSize }};line-height:1.2;letter-spacing:-0.02em;color:#202020;margin:0 0 36px;">{{ currentQuestion.text }}</h2>
+
+    <sc-if value="{{ isTextStep }}" hint-placeholder-val="{{ false }}">
+      <textarea value="{{ freeText }}" onChange="{{ updateFreeText }}" placeholder="Don't skip the detail, it’s what Property Wise looks at before your session." style="width:100%;min-height:160px;padding:18px;font-size:16px;font-family:'Inter',sans-serif;color:#202020;background:#EFEFEF;border:1px solid transparent;border-radius:6px 0 0 0;box-sizing:border-box;resize:vertical;margin-bottom:24px;" style-focus="border-color:#1F5EFF;outline:none;"></textarea>
+      <button onClick="{{ finishQuestionnaire }}" style="font-family:'Inter',sans-serif;font-weight:500;font-size:16px;background:#1F5EFF;color:#FFFFFF;border:none;border-radius:0;padding:16px 32px;cursor:pointer;width:100%;" style-hover="background:#1846C2;">Take Me To The Calendar</button>
+    </sc-if>
+
+    <sc-if value="{{ isNotTextStep }}" hint-placeholder-val="{{ true }}">
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <sc-for list="{{ currentOptions }}" as="opt" hint-placeholder-count="4">
+          <button onClick="{{ opt.select }}" style="min-height:64px;text-align:left;padding:18px 22px;font-size:16px;font-family:'Inter',sans-serif;color:#202020;background:#EFEFEF;border:1px solid {{ opt.borderCol }};border-radius:6px 0 0 0;cursor:pointer;display:flex;align-items:center;" style-hover="border-color:#1F5EFF;">{{ opt.label }}</button>
+        </sc-for>
+      </div>
+    </sc-if>
+  </div>
+
+  <div style="max-width:640px;margin:0 auto;width:100%;padding:0 {{ r.sectionPadH }} 32px;box-sizing:border-box;display:flex;flex-direction:column;gap:20px;">
+    <sc-if value="{{ showBack }}" hint-placeholder-val="{{ false }}">
+      <a href="javascript:void(0)" onClick="{{ goBack }}" style="font-size:14px;color:#202020;">← Back</a>
+    </sc-if>
+    <p style="font-size:12px;color:#828282;margin:0;">45 minutes. Nothing is sold on the call. You keep the roadmap either way.</p>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { w: typeof window !== 'undefined' ? window.innerWidth : 1280, step: 0, answers: {}, freeText: '' };
+
+  questions = [
+    { text: 'Do you currently own your own home?', options: ['Yes', 'No'] },
+    { text: 'Roughly how much is left on your mortgage?', options: ['Under $200k', '$200k-$400k', '$400k-$700k', '$700k+', "It's paid off"] },
+    { text: 'What is your household income?', options: ['Under $120k', '$120k-$180k', '$180k-$250k', '$250k+'] },
+    { text: 'Have you bought an investment property before?', options: ['No, this would be my first', 'Yes, I own one', 'Yes, I own two or more'] },
+    { text: 'What are you most looking to solve?', options: ['Pay my mortgage off faster', 'Reduce my tax', 'Build a portfolio', 'Work out if now is the right time'] },
+    { text: "Last one. What's the one thing about your mortgage that actually keeps you up at night?", options: [] },
+  ];
+
+  selectOption(label) {
+    const answers = { ...this.state.answers, [this.state.step]: label };
+    if (this.state.step < 5) this.setState({ answers, step: this.state.step + 1 });
+  }
+
+  componentDidMount() {
+    this._onResize = () => this.setState({ w: window.innerWidth });
+    window.addEventListener('resize', this._onResize);
+  }
+  componentWillUnmount() { window.removeEventListener('resize', this._onResize); }
+
+  renderVals() {
+    const mobile = this.state.w <= 760;
+    const step = this.state.step;
+    const q = this.questions[step];
+    const isTextStep = step === 5;
+    const segments = this.questions.map((_, i) => ({ color: i <= step ? '#1F5EFF' : '#EFEFEF' }));
+    const currentOptions = q.options.map((label) => ({
+      label,
+      borderCol: this.state.answers[step] === label ? '#1F5EFF' : 'transparent',
+      select: () => this.selectOption(label),
+    }));
+    const r = {
+      wrapMaxW: '1200px',
+      qSize: 'clamp(24px,3vw,32px)',
+      sectionPadH: mobile ? '20px' : '0',
+      headerPad: mobile ? '24px 20px' : '32px 20px',
+    };
+    return {
+      r,
+      segments,
+      questionNum: step + 1,
+      currentQuestion: q,
+      isTextStep,
+      isNotTextStep: !isTextStep,
+      currentOptions,
+      freeText: this.state.freeText,
+      showBack: step > 0,
+      updateFreeText: (e) => this.setState({ freeText: e.target.value }),
+      goBack: () => this.setState({ step: Math.max(0, step - 1) }),
+      finishQuestionnaire: () => {
+        const a = this.state.answers;
+        const payload = {
+          owns_home: a[0] || '',
+          mortgage_remaining: a[1] || '',
+          household_income: a[2] || '',
+          investment_experience: a[3] || '',
+          main_goal: a[4] || '',
+          keeps_you_up_at_night: this.state.freeText,
+        };
+        fetch('https://services.leadconnectorhq.com/hooks/BnlK1cTnduBYgNt7pL0p/webhook-trigger/f47030e5-8af5-4aef-84f9-f2fa5adcebff', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+          keepalive: true,
+        }).catch(() => {});
+        window.location.href = './4-Schedule.dc.html';
+      },
+    };
+  }
+}
+</script>
+</body>
+</html>

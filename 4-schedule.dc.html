@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap">
+<style>body{margin:0;background:#FFFFFF;color:#4D4D4D;font-family:"Inter",system-ui,sans-serif}a{color:#202020;text-decoration:underline}a:hover{color:#1846C2}strong{font-weight:500;color:#202020}::selection{background:#E8EEFF}</style>
+<script src="https://api.leadconnectorhq.com/js/form_embed.js"></script>
+</helmet>
+<div data-screen-label="04 Schedule" style="max-width:{{ r.wrapMaxW }};margin:0 auto;background:#FFFFFF;">
+
+
+  <header style="display:flex;justify-content:center;padding:{{ r.headerPad }};">
+    <span style="font-weight:500;font-size:17px;letter-spacing:-0.01em;color:#202020;">Property Wise</span>
+  </header>
+
+  <div style="max-width:900px;margin:0 auto;padding:0 {{ r.sectionPadH }} 74px;box-sizing:border-box;text-align:center;">
+    <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin:0 auto 10px;max-width:480px;">
+      <sc-for list="{{ segments }}" as="seg" hint-placeholder-count="7">
+        <div style="height:4px;background:#1F5EFF;"></div>
+      </sc-for>
+    </div>
+    <p style="font-size:12px;letter-spacing:0.04em;text-transform:uppercase;color:#828282;margin:0 0 48px;">Step 7 of 7</p>
+
+    <h1 style="font-weight:400;font-size:{{ r.h1Size }};line-height:1.15;letter-spacing:-0.02em;color:#202020;margin:0 0 16px;">Almost Done. Pick Your Time.</h1>
+    <p style="font-size:17px;line-height:1.6;color:#4D4D4D;max-width:60ch;margin:0 auto 48px;">45 minutes, one to one with Property Wise. Your numbers get built on screen while you watch, and the roadmap is yours to keep either way.</p>
+
+    <div style="border:1px solid #EFEFEF;border-radius:20px;overflow:hidden;min-height:700px;background:#FFFFFF;box-sizing:border-box;">
+      <iframe src="https://api.leadconnectorhq.com/widget/booking/Ehvw08Ol5HmxhAH2uT29" allow="payment" style="width:100%;min-height:700px;border:none;overflow:hidden;display:block;" scrolling="no" id="Ehvw08Ol5HmxhAH2uT29_1787043907494"></iframe>
+    </div>
+
+  </div>
+
+  <section style="position:relative;padding:74px {{ r.sectionPadH }};" style-before="content:'';position:absolute;inset:0;background:rgba(31,94,255,.028);z-index:0;pointer-events:none;" style-after="content:'';position:absolute;left:0;right:0;top:0;height:90px;background:linear-gradient(to bottom,rgba(255,255,255,.85),rgba(255,255,255,0));z-index:0;pointer-events:none;">
+    <div style="max-width:900px;margin:0 auto;box-sizing:border-box;text-align:center;position:relative;z-index:1;">
+      <div style="display:grid;grid-template-columns:{{ r.chipCols }};gap:16px;">
+        <div style="background:#FFFFFF;border-radius:6px 0 0 0;padding:16px;font-size:13px;color:#4D4D4D;box-shadow:0 18px 40px -18px rgba(32,32,32,0.22),0 2px 6px rgba(32,32,32,0.05);">Nothing is sold on this call</div>
+        <div style="background:#FFFFFF;border-radius:6px 0 0 0;padding:16px;font-size:13px;color:#4D4D4D;box-shadow:0 18px 40px -18px rgba(32,32,32,0.22),0 2px 6px rgba(32,32,32,0.05);">You keep the roadmap either way</div>
+        <div style="background:#FFFFFF;border-radius:6px 0 0 0;padding:16px;font-size:13px;color:#4D4D4D;box-shadow:0 18px 40px -18px rgba(32,32,32,0.22),0 2px 6px rgba(32,32,32,0.05);">Reschedule any time</div>
+      </div>
+      <button onClick="{{ simulateBooking }}" style="margin-top:48px;font-family:'Inter',sans-serif;font-weight:500;font-size:13px;background:transparent;color:#828282;border:1px dashed rgba(32,32,32,0.25);border-radius:0;padding:10px 20px;cursor:pointer;">Prototype only: simulate booking →</button>
+    </div>
+  </section>
+
+  <footer style="position:relative;display:flex;justify-content:center;padding:32px 24px;" style-before="content:'';position:absolute;inset:0;background:rgba(32,32,32,.035);z-index:0;pointer-events:none;">
+    <span style="position:relative;z-index:1;font-size:12px;color:#828282;">© 2026 Property Wise. All rights reserved.</span>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { w: typeof window !== 'undefined' ? window.innerWidth : 1280 };
+  segments = [1, 2, 3, 4, 5, 6, 7];
+
+  componentDidMount() {
+    this._onResize = () => this.setState({ w: window.innerWidth });
+    window.addEventListener('resize', this._onResize);
+  }
+  componentWillUnmount() { window.removeEventListener('resize', this._onResize); }
+
+  renderVals() {
+    const mobile = this.state.w <= 760;
+    const mid = this.state.w <= 1000;
+    const r = {
+      wrapMaxW: '1200px',
+      h1Size: 'clamp(30px,4vw,44px)',
+      sectionPadH: mobile ? '20px' : '48px',
+      headerPad: mobile ? '24px 20px' : '32px 20px',
+      chipCols: mobile ? '1fr' : (mid ? 'repeat(2,1fr)' : 'repeat(3,1fr)'),
+    };
+    return {
+      r,
+      segments: this.segments,
+      simulateBooking: () => { window.location.href = './5-Thank-You.dc.html'; },
+    };
+  }
+}
+</script>
+</body>
+</html>

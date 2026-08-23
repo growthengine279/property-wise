@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap">
+<script src="./image-slot.js"></script>
+<style>body{margin:0;background:#FFFFFF;color:#4D4D4D;font-family:"Inter",system-ui,sans-serif}a{color:#202020;text-decoration:underline}a:hover{color:#1846C2}strong{font-weight:500;color:#202020}::selection{background:#E8EEFF}</style>
+</helmet>
+<div data-screen-label="02 Offer" style="max-width:{{ r.wrapMaxW }};margin:0 auto;background:#FFFFFF;">
+
+
+  <sc-if value="{{ showBar }}" hint-placeholder-val="{{ true }}">
+    <div style="background:#1A1A1A;display:flex;align-items:center;justify-content:center;padding:11px 20px;">
+      <span style="font-size:11px;font-weight:500;letter-spacing:0.12em;color:#FFFFFF;text-align:center;line-height:1.5;">ONLY A FEW ROADMAP SESSIONS LEFT THIS MONTH · EVERY SESSION RUN ONE TO ONE</span>
+    </div>
+  </sc-if>
+
+  <header style="display:flex;align-items:center;justify-content:space-between;padding:{{ r.headerPad }};border-bottom:1px solid #EFEFEF;">
+    <span style="font-weight:500;font-size:17px;letter-spacing:-0.01em;color:#202020;">Property Wise</span>
+    <a href="tel:1300555019" style="font-size:15px;text-decoration:none;color:#202020;">1300 555 019</a>
+  </header>
+
+  <section style="padding:{{ r.heroPad }};">
+    <div style="max-width:1104px;margin:0 auto;display:flex;flex-direction:{{ r.splitDir }};gap:56px;align-items:center;">
+      <div style="width:{{ r.heroTextW }};">
+        <span style="display:inline-block;background:#E8EEFF;color:#1846C2;font-size:13px;font-weight:500;padding:6px 14px;border-radius:999px;margin-bottom:20px;">For Australians buying their first investment property</span>
+        <h1 style="font-weight:400;font-size:{{ r.h1Size }};line-height:1.12;letter-spacing:-0.02em;color:#202020;margin:0 0 22px;text-wrap:pretty;">Copy The Insider-Only '12-Point Site Test' Developers Run Before Risking Millions On Land, And Grade Any Investment Property Yourself... Before You Spend A Dollar</h1>
+        <p style="font-size:17px;line-height:1.6;color:#4D4D4D;max-width:56ch;margin:0 0 30px;">A developer will walk away from land that looks perfect if it fails their checks. Property Wise runs those same twelve checks on one house, for one household. You get the list, so you can mark the property yourself.</p>
+        <a href="./3-Questionnaire.dc.html" style="{{ r.btnLink }}" style-hover="background:#1846C2;">Claim My Free Roadmap Session</a>
+        <p style="font-size:13px;line-height:1.5;color:#828282;max-width:48ch;margin:12px 0 0;">Free. 45 minutes. Nothing is sold on the call, and you keep the plan either way. Projections are estimates based on stated assumptions.</p>
+      </div>
+      <div style="width:{{ r.heroImgW }};">
+        <div style="position:relative;background:#1A1A1A;padding:{{ r.heroPanelPad }};">
+          <div style="display:flex;justify-content:flex-end;margin:0 0 14px;">
+            <span style="background:#FFFFFF;border-radius:999px;padding:7px 14px;font-size:11px;font-weight:500;letter-spacing:0.06em;color:#202020;white-space:nowrap;">8 of 12 shown</span>
+          </div>
+          <div style="background:#FFFFFF;border-radius:10px;padding:{{ r.gridPad }};">
+            <p style="font-size:15px;font-weight:500;color:#202020;margin:0 0 3px;">The 12-Point Site Test</p>
+            <p style="font-size:12px;color:#828282;margin:0 0 18px;">Run before any property is put in front of you</p>
+            <div style="display:grid;grid-template-columns:{{ r.twelveCols }};gap:10px;">
+              <sc-for list="{{ checkGroups }}" as="g" hint-placeholder-count="4">
+                <div style="display:flex;flex-direction:column;gap:8px;">
+                  <span style="font-size:10px;font-weight:500;letter-spacing:0.1em;color:#1846C2;line-height:1.4;">{{ g.head }}</span>
+                  <sc-for list="{{ g.items }}" as="c" hint-placeholder-count="3">
+                    <div style="background:#E8EEFF;border:1px solid #1F5EFF;border-radius:6px;padding:9px 10px;font-size:11.5px;line-height:1.35;color:#202020;">{{ c.name }}</div>
+                  </sc-for>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+          <svg width="44" height="150" viewBox="0 0 44 150" fill="none" style="position:absolute;right:14px;top:66px;z-index:3;pointer-events:none;"><path d="M8 4C8 58 12 108 32 138" stroke="#5B6BC0" stroke-width="1.8" stroke-linecap="round"></path><path d="M22 130l12 10-15 4" stroke="#5B6BC0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          <img src="uploads/04-borrowing-power.png" alt="Borrowing power" loading="eager" style="display:block;position:absolute;z-index:2;right:-18px;bottom:-30px;width:46%;border-radius:10px;border:1px solid rgba(32,32,32,0.05);box-shadow:0 18px 40px -18px rgba(32,32,32,0.22),0 2px 6px rgba(32,32,32,0.05);" />
+        </div>
+        <span style="display:block;font-size:10px;color:#828282;margin:44px 0 0;">Numbers are for example only</span>
+      </div>
+    </div>
+  </section>
+
+  <section style="position:relative;padding:{{ r.sectionPadV }} {{ r.sectionPadH }};" style-before="content:'';position:absolute;inset:0;background:rgba(32,32,32,.035);z-index:0;pointer-events:none;" style-after="content:'';position:absolute;left:0;right:0;top:0;height:90px;background:linear-gradient(to bottom,rgba(255,255,255,.85),rgba(255,255,255,0));z-index:0;pointer-events:none;">
+    <div style="position:relative;z-index:1;max-width:1104px;margin:0 auto;display:grid;grid-template-columns:{{ r.trustCols }};gap:24px;">
+      <sc-for list="{{ trustItems }}" as="item" hint-placeholder-count="4">
+        <div style="display:flex;gap:12px;align-items:flex-start;">
+          <span style="flex:none;color:#202020;" dangerouslySetInnerHTML="{{ item.iconHtml }}"></span>
+          <span style="display:flex;flex-direction:column;gap:2px;">
+            <span style="font-size:14px;font-weight:500;color:#202020;line-height:1.4;">{{ item.line1 }}</span>
+            <span style="font-size:13px;color:#828282;line-height:1.4;">{{ item.line2 }}</span>
+          </span>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="padding:{{ r.sectionPadV }} {{ r.sectionPadH }};">
+    <div style="max-width:1104px;margin:0 auto;display:flex;flex-direction:{{ r.splitDir }};gap:56px;align-items:flex-start;">
+      <div style="width:{{ r.colA }};">
+        <h2 style="font-weight:400;font-size:{{ r.h2Size }};line-height:1.15;letter-spacing:-0.02em;color:#202020;margin:0 0 26px;text-wrap:pretty;">Think Picking The Right Suburb Is Guesswork? It Isn't. It's A Checklist You've Never Been Shown</h2>
+        <p style="font-size:17px;line-height:1.6;color:#4D4D4D;margin:0 0 20px;max-width:58ch;">Most first-time investors believe the area is a gamble. You pick somewhere that feels right, you hope, and you find out in ten years whether you were correct.</p>
+        <p style="font-size:17px;line-height:1.6;color:#4D4D4D;margin:0 0 20px;max-width:58ch;">That is not how developers do it.</p>
+        <p style="font-size:17px;line-height:1.6;color:#4D4D4D;margin:0 0 20px;max-width:58ch;">A developer will not commit a dollar to a block of land until it has passed a fixed set of checks. If the land fails, it does not matter how good it looks or how nice the street is. They walk away.</p>
+        <p style="font-size:17px;line-height:1.6;color:#4D4D4D;margin:0;max-width:58ch;">The checks are not secret. They are public information. Almost nobody outside the industry knows where to look, or what a good answer looks like.</p>
+      </div>
+      <div style="width:{{ r.colB }};">
+        <div style="background:#E8EEFF;padding:{{ r.cardPad }};">
+          <div style="background:#FFFFFF;border-radius:10px;padding:{{ r.gridPad }};box-shadow:0 18px 40px -18px rgba(32,32,32,0.22),0 2px 6px rgba(32,32,32,0.05);">
+            <p style="font-size:15px;font-weight:500;color:#202020;margin:0 0 3px;">The 12-Point Site Test</p>
+            <p style="font-size:12px;color:#828282;margin:0 0 18px;">Run before any property is put in front of you</p>
+            <div style="display:grid;grid-template-columns:{{ r.twelveCols }};gap:10px;">
+              <sc-for list="{{ checkGroups }}" as="g" hint-placeholder-count="4">
+                <div style="display:flex;flex-direction:column;gap:8px;">
+                  <span style="font-size:10px;font-weight:500;letter-spacing:0.1em;color:#1846C2;line-height:1.4;">{{ g.head }}</span>
+                  <sc-for list="{{ g.items }}" as="c" hint-placeholder-count="3">
+                    <div style="background:#E8EEFF;border:1px solid #1F5EFF;border-radius:6px;padding:9px 10px;font-size:11.5px;line-height:1.35;color:#202020;">{{ c.name }}</div>
+                  </sc-for>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+        <span style="display:block;font-size:11px;line-height:1.5;color:#828282;margin:12px 0 0;">The twelve checks, run before any property is put in front of you.</span>
+      </div>
+    </div>
+  </section>
+
+  <section style="position:relative;padding:{{ r.sectionPadV }} {{ r.sectionPadH }};" style-before="content:'';position:absolute;inset:0;background:rgba(31,94,255,.028);z-index:0;pointer-events:none;" style-after="content:'';position:absolute;left:0;right:0;top:0;height:90px;background:linear-gradient(to bottom,rgba(255,255,255,.85),rgba(255,255,255,0));z-index:0;pointer-events:none;">
+    <div style="position:relative;z-index:1;max-width:640px;margin:0 auto;">
+      <h2 style="font-weight:400;font-size:{{ r.h2Size }};line-height:1.15;letter-spacing:-0.02em;color:#202020;margin:0 0 30px;text-wrap:pretty;">The Harsh Truth: Every Hotspot List You've Been Sent Was Written By Someone Selling In That Hotspot</h2>
+      <p style="font-size:17px;line-height:1.6;color:#4D4D4D;margin:0 0 20px;">Six companies have probably already found you.</p>
+      <p style="font-size:17px;line-height:1.6;color:#4D4D4D;margin:0 0 20px;">They all have a system with a name. They all have a list of suburbs. They all have a story about someone who made $200,000 in eighteen months.</p>
+      <p style="font-size:17px;line-height:1.6;color:#4D4D4D;margin:0 0 20px;">You have read the forums. You know what people say about this industry. That the research is a report anyone can pay for. That "off-market" usually means nobody else wanted it. That the person handing over the address gets paid the day you sign, whether it works out or not.</p>
+      <p style="font-size:17px;line-height:1.6;color:#4D4D4D;margin:0 0 24px;">So finding someone was never the hard part.</p>
+      <p style="font-size:21px;line-height:1.45;font-weight:500;color:#202020;margin:0 0 24px;">Telling them apart was.</p>
+      <p style="font-size:17px;line-height:1.6;color:#4D4D4D;margin:0 0 40px;">And here is the part nobody says out loud. That is not your fault. Nobody has ever handed you the standard to judge them against. You have been asked to grade an exam without ever being shown the marking guide.</p>
+      <div style="text-align:center;">
+        <a href="./3-Questionnaire.dc.html" style="{{ r.btnLink }}" style-hover="background:#1846C2;">Claim My Free Roadmap Session</a>
+        <p style="font-size:13px;line-height:1.5;color:#828282;max-width:48ch;margin:12px auto 0;">Free. 45 minutes. Nothing is sold on the call, and you keep the plan either way. Projections are estimates based on stated assumptions.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:{{ r.sectionPadV }} {{ r.sectionPadH }};">
+    <div style="max-width:1104px;margin:0 auto;">
+      <div style="max-width:62ch;margin:0 0 48px;">
+        <h2 style="font-weight:400;font-size:{{ r.h2Size }};line-height:1.15;letter-spacing:-0.02em;color:#202020;margin:0 0 26px;text-wrap:pretty;">Introducing The '12-Point Site Test': The Checklist A Developer Runs Before Committing Millions To A Block Of Land</h2>
+        <p style="font-size:17px;line-height:1.6;color:#4D4D4D;margin:0 0 20px;">Property Wise came out of years spent on the buying side of property development, across a portfolio representing over $4 billion in development site acquisitions.</p>
+        <p style="font-size:17px;line-height:1.6;color:#4D4D4D;margin:0 0 20px;">That work is where the twelve checks come from. When you are about to commit millions, you do not guess, and you do not fall in love with a photograph. You run the checks. Most sites fail them.</p>
+        <p style="font-size:17px;line-height:1.6;color:#4D4D4D;margin:0 0 20px;">Those same twelve checks now get run on a single family home, for one household.</p>
+        <p style="font-size:17px;line-height:1.6;color:#4D4D4D;margin:0 0 20px;">This is not a buyers agent. A buyers agent is paid to find you a property, so finding you a property is the only outcome they are paid for.</p>
+        <p style="font-size:17px;line-height:1.6;color:#4D4D4D;margin:0 0 24px;">This is not a data subscription. You can already buy the data. The hard part was never finding it. It was knowing which parts actually matter.</p>
+        <p style="font-size:21px;line-height:1.45;font-weight:500;color:#202020;margin:0;max-width:38ch;">The 12-Point Site Test is the marking guide, not the essay.</p>
+      </div>
+      <sc-if value="{{ r.desk }}" hint-placeholder-val="{{ true }}">
+        <img src="uploads/20-twelve-checks-full.png" alt="The 12-Point Site Test" loading="lazy" style="display:block;width:100%;max-width:1000px;margin:0 auto;border-radius:10px;" />
+      </sc-if>
+      <sc-if value="{{ r.mob }}" hint-placeholder-val="{{ false }}">
+        <div style="background:#FFFFFF;border:1px solid rgba(32,32,32,0.08);border-radius:10px;padding:{{ r.gridPad }};box-shadow:0 18px 40px -18px rgba(32,32,32,0.22),0 2px 6px rgba(32,32,32,0.05);">
+          <p style="font-size:15px;font-weight:500;color:#202020;margin:0 0 3px;">The 12-Point Site Test</p>
+          <p style="font-size:12px;color:#828282;margin:0 0 18px;">Run before any property is put in front of you</p>
+          <div style="display:grid;grid-template-columns:{{ r.twelveCols }};gap:10px;">
+            <sc-for list="{{ checkGroups }}" as="g" hint-placeholder-count="4">
+              <div style="display:flex;flex-direction:column;gap:8px;">
+                <span style="font-size:10px;font-weight:500;letter-spacing:0.1em;color:#1846C2;line-height:1.4;">{{ g.head }}</span>
+                <sc-for list="{{ g.items }}" as="c" hint-placeholder-count="3">
+                  <div style="background:#E8EEFF;border:1px solid #1F5EFF;border-radius:6px;padding:9px 10px;font-size:11.5px;line-height:1.35;color:#202020;">{{ c.name }}</div>
+                </sc-for>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </sc-if>
+      <p style="font-size:11px;line-height:1.6;color:#828282;max-width:1000px;margin:16px auto 0;text-align:center;">All twelve are public information. You get the full list in your session.</p>
+    </div>
+  </section>
+
+  <section style="position:relative;padding:{{ r.sectionPadV }} {{ r.sectionPadH }};" style-before="content:'';position:absolute;inset:0;background:rgba(31,94,255,.055);z-index:0;pointer-events:none;" style-after="content:'';position:absolute;left:0;right:0;top:0;height:90px;background:linear-gradient(to bottom,rgba(255,255,255,.85),rgba(255,255,255,0));z-index:0;pointer-events:none;">
+    <div style="position:relative;z-index:1;max-width:800px;margin:0 auto;background:#FFFFFF;border:1px solid rgba(32,32,32,0.08);padding:{{ r.bigCardPad }};box-shadow:0 18px 40px -18px rgba(32,32,32,0.22),0 2px 6px rgba(32,32,32,0.05);">
+      <h2 style="font-weight:400;font-size:{{ r.h2Size }};line-height:1.15;letter-spacing:-0.02em;color:#202020;margin:0 0 30px;text-wrap:pretty;">Why Committed Government Spending Is The #1 Signal A Suburb Is About To Move (And Why Announcements Are Worthless)</h2>
+      <p style="font-size:17px;line-height:1.6;color:#4D4D4D;margin:0 0 20px;max-width:62ch;">Here is one of the twelve, in full, so you can see the kind of thing we mean.</p>
+      <p style="font-size:17px;line-height:1.6;color:#4D4D4D;margin:0 0 20px;max-width:62ch;">Everybody knows infrastructure lifts an area. Almost nobody checks it properly.</p>
+      <p style="font-size:17px;line-height:1.6;color:#4D4D4D;margin:0 0 24px;max-width:62ch;">The mistake is reacting to announcements. A government announces a train line, the local agents put it in every listing, and prices move on the announcement. Then the project gets delayed, rescoped, or quietly dropped.</p>
+      <p style="font-size:17px;line-height:1.6;font-weight:500;color:#202020;margin:0 0 24px;max-width:62ch;">A developer does not look at announcements. They look at committed money with a date attached.</p>
+      <p style="font-size:17px;line-height:1.6;color:#4D4D4D;margin:0 0 20px;max-width:62ch;">That is a different document, in a different place, and it is public.</p>
+      <p style="font-size:17px;line-height:1.6;color:#4D4D4D;margin:0 0 20px;max-width:62ch;">When money is committed, contracts get signed. Contractors move in. Those workers need somewhere to live. Then the services follow the workers, and the families follow the services.</p>
+      <p style="font-size:17px;line-height:1.6;color:#4D4D4D;margin:0 0 28px;max-width:62ch;">That sequence takes years, and it starts long before the average buyer notices anything has changed.</p>
+      <p style="font-size:21px;line-height:1.45;font-weight:500;color:#202020;margin:0 0 32px;">That is one check. There are eleven more.</p>
+      <div style="max-width:560px;margin:0 auto 36px;">
+        <img src="uploads/01-loan-balance.png" alt="Home loan balance" loading="lazy" style="display:block;width:100%;border-radius:10px;" />
+        <p style="font-size:11px;line-height:1.5;color:#828282;margin:12px 0 0;text-align:center;">Committed spending moves an area years before the market notices.</p>
+      </div>
+      <div style="padding-top:30px;border-top:1px solid #EFEFEF;text-align:center;">
+        <a href="./3-Questionnaire.dc.html" style="{{ r.btnLink }}" style-hover="background:#1846C2;">Claim My Free Roadmap Session</a>
+        <p style="font-size:13px;line-height:1.5;color:#828282;max-width:48ch;margin:12px auto 0;">Free. 45 minutes. Nothing is sold on the call, and you keep the plan either way. Projections are estimates based on stated assumptions.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="position:relative;padding:{{ r.sectionPadV }} {{ r.sectionPadH }};" style-before="content:'';position:absolute;inset:0;background:rgba(184,168,138,.10);z-index:0;pointer-events:none;" style-after="content:'';position:absolute;left:0;right:0;top:0;height:90px;background:linear-gradient(to bottom,rgba(255,255,255,.85),rgba(255,255,255,0));z-index:0;pointer-events:none;">
+    <div style="position:relative;z-index:1;max-width:1104px;margin:0 auto;display:flex;flex-direction:{{ r.splitDir }};gap:56px;align-items:flex-start;">
+      <div style="width:{{ r.portraitW }};">
+        <div style="background:#FFFFFF;border:1px solid rgba(32,32,32,0.08);padding:14px;box-shadow:0 18px 40px -18px rgba(32,32,32,0.22),0 2px 6px rgba(32,32,32,0.05);">
+          <image-slot id="founder-portrait" shape="rect" style="width:100%;height:{{ r.portraitH }};filter:grayscale(1);" placeholder="Drop the greyscale founder portrait"></image-slot>
+        </div>
+        <span style="display:block;font-size:11px;color:#828282;margin:12px 0 0;">Naman, founder, Property Wise.</span>
+      </div>
+      <div style="width:{{ r.founderCopyW }};">
+        <h2 style="font-weight:400;font-size:{{ r.h2Size }};line-height:1.15;letter-spacing:-0.02em;color:#202020;margin:0 0 26px;">The Experience Behind The Twelve Checks</h2>
+        <p style="font-size:17px;line-height:1.6;color:#4D4D4D;margin:0 0 20px;max-width:56ch;">Naman spent years on the acquisition side of property development, deciding which land a developer should buy and which land they should walk away from.</p>
+        <p style="font-size:17px;line-height:1.6;color:#4D4D4D;margin:0 0 20px;max-width:56ch;">That is a job where being wrong costs millions, so you learn to check everything before committing to anything. Most sites he assessed never made it past the checks.</p>
+        <p style="font-size:17px;line-height:1.6;color:#4D4D4D;margin:0;max-width:56ch;">Property Wise exists because the same discipline was never available to the person buying one house.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:{{ r.sectionPadV }} {{ r.sectionPadH }};">
+    <div style="max-width:1104px;margin:0 auto;">
+      <h2 style="font-weight:400;font-size:{{ r.h2Size }};line-height:1.15;letter-spacing:-0.02em;color:#202020;margin:0 0 56px;text-align:center;text-wrap:pretty;">Why Australians Choose Property Wise Over A Buyers Agent</h2>
+      <div style="display:flex;flex-direction:column;gap:{{ r.zigGap }};">
+        <div style="display:flex;flex-direction:{{ r.splitDir }};gap:{{ r.zigInnerGap }};align-items:center;">
+          <div style="width:{{ r.zigCopyW }};">
+            <div style="display:flex;gap:16px;align-items:flex-start;">
+              <span style="flex:none;display:flex;align-items:center;justify-content:center;width:40px;height:40px;background:#E8EEFF;font-size:16px;font-weight:500;color:#1846C2;">1</span>
+              <div>
+                <p style="font-size:{{ r.benefitTitle }};line-height:1.3;letter-spacing:-0.01em;font-weight:500;color:#202020;margin:8px 0 12px;">You get the marking guide, not just the answer.</p>
+                <p style="font-size:16px;line-height:1.6;color:#4D4D4D;margin:0;max-width:50ch;">The twelve checks are published. Every other operator keeps their method to themselves.</p>
+              </div>
+            </div>
+          </div>
+          <div style="width:{{ r.zigImgW }};">
+            <div style="background:#FFFFFF;border:1px solid rgba(32,32,32,0.08);border-radius:10px;padding:{{ r.gridPad }};box-shadow:0 18px 40px -18px rgba(32,32,32,0.22),0 2px 6px rgba(32,32,32,0.05);">
+              <p style="font-size:15px;font-weight:500;color:#202020;margin:0 0 3px;">The 12-Point Site Test</p>
+              <p style="font-size:12px;color:#828282;margin:0 0 18px;">Run before any property is put in front of you</p>
+              <div style="display:grid;grid-template-columns:{{ r.twelveCols }};gap:10px;">
+                <sc-for list="{{ checkGroups }}" as="g" hint-placeholder-count="4">
+                  <div style="display:flex;flex-direction:column;gap:8px;">
+                    <span style="font-size:10px;font-weight:500;letter-spacing:0.1em;color:#1846C2;line-height:1.4;">{{ g.head }}</span>
+                    <sc-for list="{{ g.items }}" as="c" hint-placeholder-count="3">
+                      <div style="background:#E8EEFF;border:1px solid #1F5EFF;border-radius:6px;padding:9px 10px;font-size:11.5px;line-height:1.35;color:#202020;">{{ c.name }}</div>
+                    </sc-for>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+          </div>
+        </div>
+        <sc-for list="{{ benefitRows }}" as="row" hint-placeholder-count="5">
+          <div style="display:flex;flex-direction:{{ row.dir }};gap:{{ r.zigInnerGap }};align-items:center;">
+            <div style="width:{{ row.copyW }};">
+              <div style="display:flex;gap:16px;align-items:flex-start;">
+                <span style="flex:none;display:flex;align-items:center;justify-content:center;width:40px;height:40px;background:#E8EEFF;font-size:16px;font-weight:500;color:#1846C2;">{{ row.n }}</span>
+                <div>
+                  <p style="font-size:{{ r.benefitTitle }};line-height:1.3;letter-spacing:-0.01em;font-weight:500;color:#202020;margin:8px 0 12px;">{{ row.title }}</p>
+                  <p style="font-size:16px;line-height:1.6;color:#4D4D4D;margin:0;max-width:50ch;">{{ row.body }}</p>
+                </div>
+              </div>
+            </div>
+            <sc-if value="{{ row.img }}" hint-placeholder-val="{{ false }}">
+              <div style="width:{{ row.imgW }};">
+                <img src="{{ row.img }}" alt="{{ row.alt }}" loading="lazy" style="display:block;width:100%;border-radius:10px;" />
+                <span style="display:block;font-size:10px;color:#828282;margin:10px 0 0;">Numbers are for example only</span>
+              </div>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+      <div style="text-align:center;margin:64px 0 0;">
+        <a href="./3-Questionnaire.dc.html" style="{{ r.btnLink }}" style-hover="background:#1846C2;">Claim My Free Roadmap Session</a>
+        <p style="font-size:13px;line-height:1.5;color:#828282;max-width:48ch;margin:12px auto 0;">Free. 45 minutes. Nothing is sold on the call, and you keep the plan either way. Projections are estimates based on stated assumptions.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="position:relative;padding:{{ r.sectionPadV }} {{ r.sectionPadH }};" style-before="content:'';position:absolute;inset:0;background:rgba(31,94,255,.055);z-index:0;pointer-events:none;" style-after="content:'';position:absolute;left:0;right:0;top:0;height:90px;background:linear-gradient(to bottom,rgba(255,255,255,.85),rgba(255,255,255,0));z-index:0;pointer-events:none;">
+    <div style="position:relative;z-index:1;max-width:1000px;margin:0 auto;">
+      <h2 style="font-weight:400;font-size:{{ r.h2Size }};line-height:1.15;letter-spacing:-0.02em;color:#202020;margin:0 0 40px;text-align:center;">Property Wise And A Typical Buyers Agent, Side By Side</h2>
+      <div style="display:flex;flex-direction:column;gap:{{ r.cmpTableGap }};">
+        <sc-for list="{{ compareTables }}" as="t" hint-placeholder-count="1">
+          <div style="background:#FFFFFF;border:1px solid rgba(32,32,32,0.08);overflow:hidden;box-shadow:0 18px 40px -18px rgba(32,32,32,0.22),0 2px 6px rgba(32,32,32,0.05);">
+            <div style="display:grid;grid-template-columns:{{ r.cmpCols }};background:#F5F5F5;border-bottom:1px solid #EFEFEF;">
+              <span style="font-size:{{ r.cmpHead }};font-weight:500;text-transform:uppercase;letter-spacing:0.09em;line-height:1.35;color:#828282;padding:{{ r.cmpPad }};"></span>
+              <span style="font-size:{{ r.cmpHead }};font-weight:500;text-transform:uppercase;letter-spacing:0.09em;line-height:1.35;color:#1846C2;padding:{{ r.cmpPad }};background:{{ r.pwHeadBg }};">Property Wise</span>
+              <span style="font-size:{{ r.cmpHead }};font-weight:500;text-transform:uppercase;letter-spacing:0.09em;line-height:1.35;color:#828282;padding:{{ r.cmpPad }};">A typical buyers agent</span>
+            </div>
+            <sc-for list="{{ t.rows }}" as="row" hint-placeholder-count="5">
+              <div style="display:grid;grid-template-columns:{{ r.cmpCols }};border-bottom:1px solid #EFEFEF;align-items:stretch;">
+                <span style="font-size:{{ r.cmpText }};font-weight:500;line-height:1.45;color:#202020;padding:{{ r.cmpPad }};">{{ row.label }}</span>
+                <span style="display:flex;gap:{{ r.cmpIconGap }};align-items:flex-start;font-size:{{ r.cmpText }};line-height:1.45;color:#202020;padding:{{ r.cmpPad }};background:{{ r.pwCellBg }};">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1F5EFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:2px;"><path d="M5 13l4 4L19 7"></path></svg>
+                  <span>{{ row.pw }}</span>
+                </span>
+                <span style="display:flex;gap:{{ r.cmpIconGap }};align-items:flex-start;font-size:{{ r.cmpText }};line-height:1.45;color:#4D4D4D;padding:{{ r.cmpPad }};">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#828282" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:2px;"><path d="M18 6L6 18"></path><path d="M6 6l12 12"></path></svg>
+                  <span>{{ row.ba }}</span>
+                </span>
+              </div>
+            </sc-for>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="position:relative;padding:{{ r.sectionPadV }} {{ r.sectionPadH }};" style-before="content:'';position:absolute;inset:0;background:#1A1A1A;z-index:0;pointer-events:none;">
+    <div style="position:relative;z-index:1;max-width:760px;margin:0 auto;text-align:center;">
+      <h2 style="font-weight:400;font-size:{{ r.h2Size }};line-height:1.15;letter-spacing:-0.02em;color:#FFFFFF;margin:0 0 32px;text-wrap:pretty;">In Ten Years, Would You Rather Be Explaining Why You Bought There... Or Showing People The Checklist You Ran First</h2>
+      <p style="font-size:17px;line-height:1.6;color:rgba(255,255,255,0.72);margin:0 0 20px;">Two people buy in the same month, for the same money.</p>
+      <p style="font-size:17px;line-height:1.6;color:rgba(255,255,255,0.72);margin:0 0 20px;">One picked the suburb because it felt right and an agent was enthusiastic. Ten years on, they are still explaining it to themselves.</p>
+      <p style="font-size:17px;line-height:1.6;color:rgba(255,255,255,0.72);margin:0 0 28px;">The other ran twelve checks before they made an offer. They can tell you exactly why they bought where they did, and what would have made them walk away.</p>
+      <p style="font-size:21px;line-height:1.45;font-weight:500;color:#FFFFFF;margin:0 0 36px;">Same money. Same decade. Completely different conversation.</p>
+      <img src="uploads/21-two-suburbs.png" alt="Same money, same decade" loading="lazy" style="display:block;width:100%;border-radius:10px;" />
+      <p style="font-size:10px;line-height:1.5;color:rgba(255,255,255,0.45);margin:12px 0 40px;">Numbers are for example only.</p>
+      <a href="./3-Questionnaire.dc.html" style="{{ r.btnLinkLight }}" style-hover="background:#E8EEFF;">Claim My Free Roadmap Session</a>
+      <p style="font-size:13px;line-height:1.5;color:rgba(255,255,255,0.45);max-width:48ch;margin:12px auto 0;">Free. 45 minutes. Nothing is sold on the call, and you keep the plan either way. Projections are estimates based on stated assumptions.</p>
+    </div>
+  </section>
+
+  <section style="padding:{{ r.sectionPadV }} {{ r.sectionPadH }};">
+    <div style="max-width:1104px;margin:0 auto;">
+      <h2 style="font-weight:400;font-size:{{ r.h2Size }};line-height:1.15;letter-spacing:-0.02em;color:#202020;margin:0 0 56px;text-align:center;">Here's How It Works</h2>
+      <div style="display:flex;flex-direction:column;gap:{{ r.zigGap }};">
+        <sc-for list="{{ processRows }}" as="row" hint-placeholder-count="3">
+          <div style="display:flex;flex-direction:{{ row.dir }};gap:{{ r.zigInnerGap }};align-items:center;">
+            <div style="width:{{ row.copyW }};">
+              <span style="display:block;font-size:38px;line-height:1;color:#1F5EFF;margin:0 0 16px;">{{ row.n }}</span>
+              <p style="font-size:{{ r.benefitTitle }};line-height:1.3;letter-spacing:-0.01em;font-weight:500;color:#202020;margin:0 0 14px;">{{ row.title }}</p>
+              <p style="font-size:16px;line-height:1.6;color:#4D4D4D;margin:0;max-width:52ch;">{{ row.body }}</p>
+            </div>
+            <sc-if value="{{ row.img }}" hint-placeholder-val="{{ false }}">
+              <div style="width:{{ row.imgW }};">
+                <img src="{{ row.img }}" alt="{{ row.alt }}" loading="lazy" style="display:block;width:100%;border-radius:10px;" />
+                <span style="display:block;font-size:10px;color:#828282;margin:10px 0 0;">Numbers are for example only</span>
+              </div>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+      <div style="max-width:560px;margin:{{ r.zigGap }} auto 0;">
+        <img src="uploads/02-interest-still-to-pay.png" alt="Interest still to pay" loading="lazy" style="display:block;width:100%;border-radius:10px;" />
+        <span style="display:block;font-size:10px;color:#828282;margin:10px 0 0;">Numbers are for example only</span>
+      </div>
+      <div style="text-align:center;margin:64px 0 0;">
+        <a href="./3-Questionnaire.dc.html" style="{{ r.btnLink }}" style-hover="background:#1846C2;">Claim My Free Roadmap Session</a>
+        <p style="font-size:13px;line-height:1.5;color:#828282;max-width:48ch;margin:12px auto 0;">Free. 45 minutes. Nothing is sold on the call, and you keep the plan either way. Projections are estimates based on stated assumptions.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="position:relative;padding:{{ r.sectionPadV }} {{ r.sectionPadH }};" style-before="content:'';position:absolute;inset:0;background:rgba(32,32,32,.035);z-index:0;pointer-events:none;" style-after="content:'';position:absolute;left:0;right:0;top:0;height:90px;background:linear-gradient(to bottom,rgba(255,255,255,.85),rgba(255,255,255,0));z-index:0;pointer-events:none;">
+    <div style="position:relative;z-index:1;max-width:640px;margin:0 auto;">
+      <sc-if value="{{ showSeal }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;justify-content:center;margin:0 0 32px;">
+          <img src="uploads/Naman Guarantee Check.png" alt="The 12-Point Site Test Guarantee" loading="lazy" style="display:block;width:200px;height:200px;" />
+        </div>
+      </sc-if>
+      <h2 style="font-weight:400;font-size:{{ r.h2Size }};line-height:1.15;letter-spacing:-0.02em;color:#202020;margin:0 0 36px;text-align:center;text-wrap:pretty;">A Plan Worth $25,000, Or We Pay You The Difference</h2>
+      <p style="font-size:17px;line-height:1.6;color:#4D4D4D;margin:0 0 20px;">A buyers agent charges around $25,000 to hand you an address and walk away. So that is the number we will put behind the plan.</p>
+      <p style="font-size:17px;line-height:1.6;color:#4D4D4D;margin:0 0 28px;">Attend the full session and we will build you a plan to take at least $25,000 off what you pay the bank over the life of your loan. If we cannot, we pay you the difference.</p>
+      <p style="font-size:17px;line-height:1.6;font-weight:500;color:#202020;margin:0 0 18px;">The conditions, stated plainly:</p>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <sc-for list="{{ conditions }}" as="c" hint-placeholder-count="5">
+          <div style="display:flex;gap:12px;align-items:flex-start;">
+            <span style="flex:none;display:flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:999px;background:#E8EEFF;margin-top:1px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#1F5EFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"></path></svg></span>
+            <span style="font-size:16px;line-height:1.55;color:#4D4D4D;">{{ c.text }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <p style="font-size:10px;line-height:1.6;color:#828282;margin:24px 0 0;">*T&amp;C's apply.</p>
+    </div>
+  </section>
+
+  <section style="position:relative;padding:{{ r.sectionPadV }} {{ r.sectionPadH }};" style-before="content:'';position:absolute;inset:0;background:rgba(31,94,255,.055);z-index:0;pointer-events:none;" style-after="content:'';position:absolute;left:0;right:0;top:0;height:90px;background:linear-gradient(to bottom,rgba(255,255,255,.85),rgba(255,255,255,0));z-index:0;pointer-events:none;">
+    <div style="position:relative;z-index:1;max-width:760px;margin:0 auto;text-align:center;">
+      <span style="display:inline-block;background:#E8EEFF;color:#1846C2;font-size:13px;font-weight:500;padding:6px 14px;border-radius:999px;margin:0 0 12px;">Only a few Roadmap Sessions left this month</span>
+      <p style="font-size:11px;line-height:1.6;color:#828282;max-width:56ch;margin:0 auto 34px;">Every session is run one to one, 45 minutes, by the person who does the research. That is the limit.</p>
+      <h2 style="font-weight:400;font-size:{{ r.h2Size }};line-height:1.15;letter-spacing:-0.02em;color:#202020;margin:0 0 40px;text-wrap:pretty;">Give Us 45 Minutes And We'll Hand You The Same Twelve Checks A Developer Runs Before Risking Millions</h2>
+      <div style="display:flex;justify-content:center;margin:0 0 10px;">
+        <img src="uploads/Neman Offer Stack 2.png" alt="Your plan on every screen" loading="lazy" style="display:block;width:100%;max-width:{{ r.deviceStackW }};" />
+      </div>
+      <span style="display:block;font-size:10px;color:#828282;margin:0 0 44px;">Numbers are for example only</span>
+      <p style="font-size:17px;line-height:1.6;font-weight:500;color:#202020;margin:0 0 20px;text-align:left;">Here's what you get:</p>
+      <div style="background:#FFFFFF;border:1px solid rgba(32,32,32,0.08);padding:{{ r.cardPad }};box-shadow:0 18px 40px -18px rgba(32,32,32,0.22),0 2px 6px rgba(32,32,32,0.05);text-align:left;">
+        <sc-for list="{{ stackItems }}" as="s" hint-placeholder-count="7">
+          <div style="display:flex;flex-direction:{{ r.stackDir }};gap:{{ r.stackGap }};align-items:baseline;justify-content:space-between;padding:15px 0;border-bottom:1px solid #EFEFEF;">
+            <span style="display:flex;gap:11px;align-items:flex-start;font-size:16px;line-height:1.55;color:#4D4D4D;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1F5EFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:5px;"><path d="M5 13l4 4L19 7"></path></svg>
+              <span><strong>{{ s.lead }}</strong>{{ s.text }}</span>
+            </span>
+            <span style="flex:none;font-size:13px;font-weight:500;color:#828282;white-space:nowrap;">{{ s.value }}</span>
+          </div>
+        </sc-for>
+        <p style="font-size:21px;line-height:1.45;font-weight:500;color:#202020;margin:28px 0 0;text-align:center;">Total value: $3,500. Your price today: $0.</p>
+      </div>
+      <p style="font-size:17px;line-height:1.6;color:#4D4D4D;margin:28px 0 32px;">No catch, no card, no contracts.</p>
+      <a href="./3-Questionnaire.dc.html" style="{{ r.btnLink }}" style-hover="background:#1846C2;">Claim My Free Roadmap Session</a>
+      <p style="font-size:13px;line-height:1.5;color:#828282;max-width:48ch;margin:12px auto 0;">Free. 45 minutes. Nothing is sold on the call, and you keep the plan either way. Projections are estimates based on stated assumptions.</p>
+      <p style="font-size:12px;line-height:1.6;color:#828282;max-width:52ch;margin:24px auto 0;">Property Wise is paid by the developer, not by you. The twelve checks are yours before you see a single address.</p>
+    </div>
+  </section>
+
+  <footer style="position:relative;padding:48px 24px;" style-before="content:'';position:absolute;inset:0;background:#1A1A1A;z-index:0;pointer-events:none;">
+    <div style="position:relative;z-index:1;max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;">
+      <span style="font-weight:500;font-size:15px;color:#FFFFFF;">Property Wise</span>
+      <p style="font-size:12px;line-height:1.7;color:rgba(255,255,255,0.45);margin:0;">© 2026 Property Wise. This is general information only and does not consider your personal circumstances. Nothing on this page is financial advice. Projections are estimates based on stated assumptions. Property Wise is paid by the developer on the purchase, not by a fee charged to you.</p>
+      <a href="#" style="font-size:12px;color:rgba(255,255,255,0.72);" style-hover="color:#FFFFFF;">Terms &amp; Conditions</a>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showAnnouncementBar&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Page&quot;},&quot;showSeal&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Guarantee&quot;},&quot;highlightBestColumn&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Comparison&quot;}}">
+class Component extends DCLogic {
+  state = { w: typeof window !== 'undefined' ? window.innerWidth : 1280 };
+
+  icon(paths) { return { __html: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">${paths}</svg>` }; }
+
+  trustItems = [
+    { line1: 'Over $4 billion', line2: 'in development site acquisitions', iconHtml: this.icon('<path d="M3 21h18"/><path d="M5 21V8l7-4 7 4v13"/><path d="M10 21v-6h4v6"/>') },
+    { line1: '12 checks', line2: 'published, so you can check the work', iconHtml: this.icon('<path d="M9 4h9a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h3z"/><path d="M8 12l2.5 2.5L16 9"/>') },
+    { line1: '$25,000', line2: 'plan guarantee', iconHtml: this.icon('<path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/>') },
+    { line1: 'Yours to keep', line2: 'whether you go ahead or not', iconHtml: this.icon('<path d="M20 6H4a1 1 0 00-1 1v3h18V7a1 1 0 00-1-1z"/><path d="M3 10v8a1 1 0 001 1h16a1 1 0 001-1v-8"/><path d="M12 6v13"/>') },
+  ];
+
+  checkGroups = [
+    { head: 'THE LAND', items: [{ name: 'Zoning' }, { name: 'Supply pipeline' }, { name: 'Council planning' }] },
+    { head: 'MONEY COMING IN', items: [{ name: 'Committed infrastructure' }, { name: 'Jobs and employment' }, { name: 'Growth fundamentals' }] },
+    { head: 'THE PEOPLE', items: [{ name: 'Rental demand' }, { name: 'Population growth' }, { name: 'Lifestyle demand' }] },
+    { head: 'THE RISK', items: [{ name: 'Risk flags' }, { name: 'Comparable sales' }, { name: 'Oversupply check' }] },
+  ];
+
+  benefits = [
+    { n: '2', title: 'The plan comes before the property.', body: 'What a bank would actually lend you, what your tax looks like, and what it costs week to week. All before a single address is discussed.', img: '' },
+    { n: '3', title: 'You pay nothing.', body: 'Property Wise is paid by the developer on the purchase, not by you. It is never a percentage of what you spend.', img: 'uploads/04-borrowing-power.png', alt: 'Borrowing power', flip: true },
+    { n: '4', title: 'A more expensive property does not pay us more.', body: 'The property either passes the twelve checks or it does not, and you can see which.', img: '' },
+    { n: '5', title: 'Everything continues after settlement.', body: 'The loan, the accountant, the settlement, and a yearly review. Most advice stops at the keys.', img: 'uploads/06-cashflow-comparison.png', alt: 'Cashflow comparison' },
+    { n: '6', title: 'You keep the plan either way.', body: 'Whether you ever work with us or not.', img: '' },
+  ];
+
+  compareRows = [
+    { label: 'What you pay them', pw: 'Nothing', ba: 'Around $25,000' },
+    { label: 'Who pays them', pw: 'The developer', ba: 'You' },
+    { label: 'Paid even if you never buy?', pw: 'No', ba: 'Often, up front' },
+    { label: 'Is the method published?', pw: 'Yes, all twelve', ba: 'Rarely explained' },
+    { label: 'Can you check their work?', pw: 'Yes', ba: 'No' },
+    { label: 'Plan built before the property?', pw: 'Always', ba: 'No' },
+    { label: 'What you get before committing', pw: 'A full plan, free', ba: 'A sales call' },
+    { label: 'Your loan and your accountant', pw: 'Handled', ba: 'Your problem' },
+    { label: 'Settlement', pw: 'Handled', ba: 'Your problem' },
+    { label: 'After you own it', pw: 'Yearly reviews', ba: 'Usually nothing' },
+  ];
+
+  process = [
+    { n: '1', title: 'A few questions. About 90 seconds.', body: 'Enough about your situation that the session starts with context instead of small talk.', img: '' },
+    { n: '2', title: 'Your 45-minute session.', body: 'Your numbers get built on screen while you watch. What a bank would actually lend you, what buying really costs, and what it does to your tax. Then the twelve checks, so you know exactly what to look for. Nothing is sold on this call, and the plan is yours to keep either way.', img: '' },
+    { n: '3', title: 'You decide, in your own time.', body: 'If it stacks up, Property Wise finds the property and runs it against all twelve checks. If it does not, you keep the plan anyway.', img: '' },
+  ];
+
+  conditions = [
+    { text: 'You attend the full 45 minutes.' },
+    { text: 'You own a home in Australia with a loan still on it.' },
+    { text: 'You give us the documents needed to check your position.' },
+    { text: 'You claim in writing within 60 days, and we answer within 7 days.' },
+    { text: 'If approved, we pay by direct transfer within 14 days.' },
+  ];
+
+  stackItems = [
+    { lead: 'The full 12-Point Site Test', text: ', in writing, so you can grade any property yourself', value: 'value $1,200' },
+    { lead: 'What a bank would actually lend you', text: ', tested the way a bank tests it', value: 'value $450' },
+    { lead: 'What buying really costs', text: ', including the government tax on the purchase, for your state', value: 'value $350' },
+    { lead: 'What it does to your tax', text: ', before and after', value: 'value $400' },
+    { lead: 'What it costs you week to week', text: ', once the rent comes in and the bills go out', value: 'value $500' },
+    { lead: 'Your year-by-year plan', text: ', so you know when the next one becomes possible', value: 'value $600' },
+    { lead: 'The $25,000 plan guarantee', text: '', value: '' },
+  ];
+
+  componentDidMount() {
+    this._onResize = () => this.setState({ w: window.innerWidth });
+    window.addEventListener('resize', this._onResize);
+  }
+  componentWillUnmount() { window.removeEventListener('resize', this._onResize); }
+
+  renderVals() {
+    const mobile = this.state.w <= 760;
+    const mid = this.state.w <= 1000;
+    const btn = "font-family:'Inter',sans-serif;font-weight:500;font-size:16px;background:#1F5EFF;color:#FFFFFF;border:none;border-radius:0;padding:16px 32px;cursor:pointer;display:inline-block;text-decoration:none;";
+    const hi = this.props.highlightBestColumn ?? true;
+
+    const zig = (rows) => rows.map((row) => ({
+      ...row,
+      dir: mid ? 'column' : (row.flip ? 'row-reverse' : 'row'),
+      copyW: mid ? '100%' : (row.img ? '54%' : '100%'),
+      imgW: mid ? '100%' : '40%',
+    }));
+
+    const r = {
+      desk: !mobile,
+      mob: mobile,
+      wrapMaxW: '1200px',
+      splitDir: mid ? 'column' : 'row',
+      heroTextW: mid ? '100%' : '46%',
+      heroImgW: mid ? '100%' : '50%',
+      colA: mid ? '100%' : '52%',
+      colB: mid ? '100%' : '42%',
+      portraitW: mid ? '100%' : '38%',
+      portraitH: mobile ? '380px' : '440px',
+      founderCopyW: mid ? '100%' : '54%',
+      zigCopyW: mid ? '100%' : '54%',
+      zigImgW: mid ? '100%' : '40%',
+      h1Size: 'clamp(28px,3.9vw,42px)',
+      h2Size: 'clamp(24px,3.2vw,34px)',
+      benefitTitle: 'clamp(19px,2vw,21px)',
+      trustCols: mobile ? '1fr' : (mid ? '1fr 1fr' : 'repeat(4,1fr)'),
+      twelveCols: mobile ? '1fr 1fr' : 'repeat(4,1fr)',
+      cmpCols: mobile ? '1.3fr 1fr 1fr' : '1.5fr 1fr 1fr',
+      cmpPad: mobile ? '10px 9px' : '14px 18px',
+      cmpText: mobile ? '12.5px' : '15px',
+      cmpHead: mobile ? '9.5px' : '11px',
+      cmpIconGap: mobile ? '6px' : '9px',
+      cmpTableGap: mobile ? '20px' : '0px',
+      sectionPadV: mobile ? '56px' : '74px',
+      sectionPadH: mobile ? '20px' : '48px',
+      heroPad: mobile ? '32px 20px 12px' : '48px 48px 88px',
+      headerPad: mobile ? '16px 20px' : '20px 48px',
+      cardPad: mobile ? '22px 18px' : '30px',
+      gridPad: mobile ? '18px 16px' : '22px',
+      bigCardPad: mobile ? '28px 20px' : '48px',
+      zigGap: mobile ? '44px' : '64px',
+      zigInnerGap: mobile ? '24px' : '48px',
+      stackDir: mobile ? 'column' : 'row',
+      stackGap: mobile ? '6px' : '24px',
+      deviceStackW: mobile ? '100%' : '760px',
+      heroPanelPad: mobile ? '22px 54px 22px 22px' : '30px 68px 30px 30px',
+      pwHeadBg: hi ? '#E8EEFF' : 'transparent',
+      pwCellBg: hi ? '#E8EEFF' : 'transparent',
+      btnLink: btn,
+      btnLinkLight: btn.replace('background:#1F5EFF;color:#FFFFFF;', 'background:#FFFFFF;color:#202020;'),
+    };
+
+    return {
+      r,
+      showBar: this.props.showAnnouncementBar ?? true,
+      showSeal: this.props.showSeal ?? true,
+      trustItems: this.trustItems,
+      checkGroups: this.checkGroups,
+      benefitRows: zig(this.benefits),
+      processRows: zig(this.process),
+      compareTables: mobile
+        ? [{ rows: this.compareRows.slice(0, 5) }, { rows: this.compareRows.slice(5) }]
+        : [{ rows: this.compareRows }],
+      conditions: this.conditions,
+      stackItems: this.stackItems,
+    };
+  }
+}
+</script>
+</body>
+</html>
