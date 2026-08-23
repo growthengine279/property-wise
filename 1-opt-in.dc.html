@@ -309,12 +309,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p style="font-size:17px;line-height:1.6;color:rgba(255,255,255,0.72);margin:0 0 36px;">Before you talk to a single agent. Before anyone has a reason to sell you anything.</p>
       <form onSubmit="{{ handleSubmit }}" style="max-width:440px;margin:0 auto;display:flex;flex-direction:column;gap:16px;text-align:left;">
         <div>
-          <label style="display:block;font-size:13px;margin-bottom:6px;color:rgba(255,255,255,0.55);">First name</label>
-          <input required="" type="text" name="firstName" style="width:100%;min-height:44px;padding:8px 14px;font-size:15px;font-family:'Inter',sans-serif;color:#202020;background:#FFFFFF;border:1px solid rgba(255,255,255,0.22);border-radius:0;box-sizing:border-box;" />
-        </div>
-        <div>
-          <label style="display:block;font-size:13px;margin-bottom:6px;color:rgba(255,255,255,0.55);">Last name</label>
-          <input required="" type="text" name="lastName" style="width:100%;min-height:44px;padding:8px 14px;font-size:15px;font-family:'Inter',sans-serif;color:#202020;background:#FFFFFF;border:1px solid rgba(255,255,255,0.22);border-radius:0;box-sizing:border-box;" />
+          <label style="display:block;font-size:13px;margin-bottom:6px;color:rgba(255,255,255,0.55);">Full name</label>
+          <input required="" type="text" name="fullName" style="width:100%;min-height:44px;padding:8px 14px;font-size:15px;font-family:'Inter',sans-serif;color:#202020;background:#FFFFFF;border:1px solid rgba(255,255,255,0.22);border-radius:0;box-sizing:border-box;" />
         </div>
         <div>
           <label style="display:block;font-size:13px;margin-bottom:6px;color:rgba(255,255,255,0.55);">Email</label>
@@ -471,7 +467,10 @@ class Component extends DCLogic {
       handleSubmit: (e) => {
         e.preventDefault();
         const f = e.target;
-        const payload = { first_name: f.firstName.value, last_name: f.lastName.value, email: f.email.value, phone: f.phone.value };
+        const nameParts = f.fullName.value.trim().split(/\s+/);
+        const firstName = nameParts[0] || '';
+        const lastName = nameParts.slice(1).join(' ');
+        const payload = { first_name: firstName, last_name: lastName, email: f.email.value, phone: f.phone.value };
         fetch('https://services.leadconnectorhq.com/hooks/BnlK1cTnduBYgNt7pL0p/webhook-trigger/a361dc0e-d6ea-49f2-9858-ea3a63ab2329', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
