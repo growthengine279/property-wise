@@ -47,7 +47,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <sc-if value="{{ isContactStep }}" hint-placeholder-val="{{ false }}">
       <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:8px;">
-        <input value="{{ fullName }}" onChange="{{ updateFullName }}" placeholder="Full name" style="width:100%;min-height:56px;padding:16px 18px;font-size:16px;font-family:'Inter',sans-serif;color:#202020;background:#EFEFEF;border:1px solid transparent;border-radius:6px 0 0 0;box-sizing:border-box;" style-focus="border-color:#1F5EFF;outline:none;" />
+        <input value="{{ firstName }}" onChange="{{ updateFirstName }}" placeholder="First name" style="width:100%;min-height:56px;padding:16px 18px;font-size:16px;font-family:'Inter',sans-serif;color:#202020;background:#EFEFEF;border:1px solid transparent;border-radius:6px 0 0 0;box-sizing:border-box;" style-focus="border-color:#1F5EFF;outline:none;" />
+        <input value="{{ lastName }}" onChange="{{ updateLastName }}" placeholder="Last name" style="width:100%;min-height:56px;padding:16px 18px;font-size:16px;font-family:'Inter',sans-serif;color:#202020;background:#EFEFEF;border:1px solid transparent;border-radius:6px 0 0 0;box-sizing:border-box;" style-focus="border-color:#1F5EFF;outline:none;" />
         <input value="{{ email }}" onChange="{{ updateEmail }}" placeholder="Email" type="email" style="width:100%;min-height:56px;padding:16px 18px;font-size:16px;font-family:'Inter',sans-serif;color:#202020;background:#EFEFEF;border:1px solid transparent;border-radius:6px 0 0 0;box-sizing:border-box;" style-focus="border-color:#1F5EFF;outline:none;" />
         <input value="{{ phone }}" onChange="{{ updatePhone }}" placeholder="Phone" type="tel" style="width:100%;min-height:56px;padding:16px 18px;font-size:16px;font-family:'Inter',sans-serif;color:#202020;background:#EFEFEF;border:1px solid transparent;border-radius:6px 0 0 0;box-sizing:border-box;" style-focus="border-color:#1F5EFF;outline:none;" />
       </div>
@@ -81,10 +82,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { w: typeof window !== 'undefined' ? window.innerWidth : 1280, step: 0, answers: {}, freeText: '', fullName: '', email: '', phone: '', contactError: '' };
+  state = { w: typeof window !== 'undefined' ? window.innerWidth : 1280, step: 0, answers: {}, freeText: '', firstName: '', lastName: '', email: '', phone: '', contactError: '' };
 
   questions = [
-    { text: 'First, what is your full name, email and phone number?', options: [] },
+    { text: 'First, what is your first name, last name, email and phone number?', options: [] },
     { text: 'Do you currently own your own home?', options: ['Yes', 'No'] },
     { text: 'Roughly how much is left on your mortgage?', options: ['Under $200k', '$200k-$400k', '$400k-$700k', '$700k+', "It's paid off"] },
     { text: 'What is your household income?', options: ['Under $120k', '$120k-$180k', '$180k-$250k', '$250k+'] },
@@ -133,23 +134,26 @@ class Component extends DCLogic {
       isChoiceStep,
       currentOptions,
       freeText: this.state.freeText,
-      fullName: this.state.fullName,
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
       email: this.state.email,
       phone: this.state.phone,
       contactError: this.state.contactError,
       hasContactError: !!this.state.contactError,
       showBack: step > 0,
       updateFreeText: (e) => this.setState({ freeText: e.target.value }),
-      updateFullName: (e) => this.setState({ fullName: e.target.value }),
+      updateFirstName: (e) => this.setState({ firstName: e.target.value }),
+      updateLastName: (e) => this.setState({ lastName: e.target.value }),
       updateEmail: (e) => this.setState({ email: e.target.value }),
       updatePhone: (e) => this.setState({ phone: e.target.value }),
       goBack: () => this.setState({ step: Math.max(0, step - 1) }),
       continueFromContact: () => {
-        const name = this.state.fullName.trim();
+        const firstName = this.state.firstName.trim();
+        const lastName = this.state.lastName.trim();
         const email = this.state.email.trim();
         const phone = this.state.phone.trim();
-        if (!name || !email.includes('@') || !phone) {
-          this.setState({ contactError: 'Please fill in your name, email and phone to continue.' });
+        if (!firstName || !lastName || !email.includes('@') || !phone) {
+          this.setState({ contactError: 'Please fill in your first name, last name, email and phone to continue.' });
           return;
         }
         this.setState({ contactError: '', step: step + 1 });
@@ -157,7 +161,8 @@ class Component extends DCLogic {
       finishQuestionnaire: () => {
         const a = this.state.answers;
         const payload = {
-          full_name: this.state.fullName,
+          first_name: this.state.firstName,
+          last_name: this.state.lastName,
           email: this.state.email,
           phone: this.state.phone,
           owns_home: a[1] || '',
