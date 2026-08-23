@@ -14,6 +14,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <script src="./vendor/react.production.min.js"></script>
 <script src="./vendor/react-dom.production.min.js"></script>
+<script src="./utm.js"></script>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -159,6 +160,7 @@ class Component extends DCLogic {
         const nameParts = this.state.fullName.trim().split(/\s+/);
         const firstName = nameParts[0] || '';
         const lastName = nameParts.slice(1).join(' ');
+        const utms = window.getStoredUTMs ? window.getStoredUTMs() : {};
         const payload = {
           first_name: firstName,
           last_name: lastName,
@@ -170,6 +172,7 @@ class Component extends DCLogic {
           investment_experience: a[4] || '',
           main_goal: a[5] || '',
           keeps_you_up_at_night: this.state.freeText,
+          ...utms,
         };
         fetch('https://services.leadconnectorhq.com/hooks/BnlK1cTnduBYgNt7pL0p/webhook-trigger/f47030e5-8af5-4aef-84f9-f2fa5adcebff', {
           method: 'POST',
